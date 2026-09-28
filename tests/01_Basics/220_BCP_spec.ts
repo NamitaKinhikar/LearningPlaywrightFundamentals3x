@@ -20,3 +20,4 @@ async function run()
     await context1.close();
     await browser.close();
 }
+run();

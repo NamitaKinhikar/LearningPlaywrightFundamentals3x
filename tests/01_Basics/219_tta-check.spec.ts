@@ -9,5 +9,5 @@ test('test', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Password' }).click();
   await page.getByRole('textbox', { name: 'Password' }).fill('abc123');
   await page.getByTestId('login-button').click();
-  //await page.waitForTimeout(5000);
+  await page.waitForTimeout(5000);
 });
