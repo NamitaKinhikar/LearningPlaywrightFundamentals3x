@@ -8,7 +8,8 @@ test("Verfiy the error message in the wingify free trial", async({ page})=>
 
     await page.locator("#free-trial-step1-gdpr-consent-checkboxcu-marketing-consent-checkbox").click();
     await page.locator("[data-qa='free-trial-step1-gdpr-consent-checkboxgdpr-consent-checkbox']").click();
-//because of click() we need to add await -it return promices
+    //above using for css selector--->#free-trial
+    //because of click() we need to add await -it return promices
 
     let error_message = page.locator("//div[contains(@class,'invalid-reason')]").first();
     
@@ -16,7 +17,6 @@ test("Verfiy the error message in the wingify free trial", async({ page})=>
 
 
     let error_message_text = await error_message.textContent();
-
     expect(error_message_text).toContain("The email address you entered is incorrect.");
 
     await page.pause();
@@ -26,3 +26,9 @@ test("Verfiy the error message in the wingify free trial", async({ page})=>
 // **Contains()**//tag_name[**contains**(@attribute,'value_of_attribute')]
 //- **Starts-with()**//tag_name[**starts-with**(@attribute,'Part_of_Attribute_value')]
 // - **Text()**//tag_name[text()='Text of the element']
+
+//Concept of Normalized page function=>If Space available in that casewe use-
+// //tagname[(@normalize-space()='Make appointment')]
+
+// if you want direct code from dom then----
+//npx playwright codegen https://app.thetestingacademy.com/playwright/multiple_element_filter

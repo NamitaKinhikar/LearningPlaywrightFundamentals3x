@@ -14,3 +14,6 @@ test("Verfiy the error message in the wingify free trial", async({ page})=>
     await page.pause();
 
 });
+
+// Concept of Normalized page function=>If Space available in that casewe use-
+// //tagname[(@normalize-space()='Make appointment')]
