@@ -15,89 +15,27 @@ npm -v
 git --version
 ```
 
-## Installing Playwright
+## Setup
 
-### 1. Create a new project (skip if cloning this repo)
-
-```bash
-npm init -y
-```
-
-### 2. Install the Playwright test runner
+From the repository root, install the dependencies and the Chromium browser used by the project:
 
 ```bash
-npm init playwright@latest
-```
-
-The installer will ask you a few questions:
-
-- **Choose TypeScript or JavaScript** — this repo uses TypeScript
-- **Name of your tests folder** — default is `tests`
-- **Add a GitHub Actions workflow?** — optional, choose yes to run tests in CI
-- **Install Playwright browsers?** — choose yes
-
-It creates the `playwright.config.ts` config file, a `tests/` folder with an example spec, and a `.gitignore`.
-
-> Already cloned this repo? Just run `npm install` and then install the browsers below.
-
-### 3. Install browsers (optional — the installer may ask you)
-
-```bash
-npx playwright install
-```
-
-To install a specific browser only:
-
-```bash
+npm install
 npx playwright install chromium
-npx playwright install firefox
-npx playwright install webkit
 ```
 
-## Setting Up the Basic Project
+Tests are organized in topic folders under `tests/`, including basics, annotations, locator commands, and session storage. The Playwright configuration uses the Chromium project, runs headed by default, and writes an HTML report.
 
-After installation you should have a structure like this:
+## Session Storage Credentials
 
-```text
-LearningPlaywrightFundamentals3x/
-├── node_modules/
-├── playwright-report/
-├── test-results/
-├── tests/
-│   ├── example.spec.ts
-│   └── tta-check.spec.ts
-├── .gitignore
-├── package.json
-├── playwright.config.ts
-└── README.md
+The session-storage example reads `VWO_USER` and `VWO_PASS` from a root-level `.env` file. Create it locally with your credentials:
+
+```dotenv
+VWO_USER=your_username
+VWO_PASS=your_password
 ```
 
-Key files:
-
-| File | Purpose |
-| --- | --- |
-| `playwright.config.ts` | Central configuration: test directory, browsers, reporters, timeouts |
-| `tests/` | Where all your spec files live |
-| `package.json` | Dependencies and scripts |
-
-### Config overview
-
-`playwright.config.ts` is generated with sensible defaults — test directory `./tests`, the Chromium project preconfigured, and the HTML reporter enabled:
-
-```ts
-export default defineConfig({
-  testDir: './tests',
-  fullyParallel: true,
-  reporter: 'html',
-  use: {
-    headless: false,
-    trace: 'on-first-retry',
-  },
-  projects: [
-    { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
-  ],
-});
-```
+`.env` is ignored by Git. The example saves authenticated browser state to `user-session.json`; treat that file as sensitive and do not commit or share it.
 
 ## Running Tests
 
@@ -110,7 +48,7 @@ npx playwright test
 Run a single test file:
 
 ```bash
-npx playwright test tests/example.spec.ts
+npx playwright test tests/03_Locator_Commands/227_Fresh.spec.ts
 ```
 
 Run tests in a specific browser project:
@@ -171,7 +109,7 @@ npx playwright codegen --browser=webkit https://example.com
 4. Copy the generated code into a spec file (e.g. `tests/my-test.spec.ts`) and run it.
 5. Use the inspector to copy **selectors** for specific elements or generate **assertions** like `await expect(page).toHaveTitle(...)`.
 
-The file `tests/tta-check.spec.ts` in this repo was created with codegen against the Testing Academy practice app.
+The file `tests/01_Basics/219_tta-check.spec.ts` in this repo was created with codegen against the Testing Academy practice app.
 
 ## Example Test
 
