@@ -28,3 +28,11 @@ async function saveSession() {
 
 }
 saveSession();
+//to run the code u can use -npx tsx tests/04_Session_Storage/231_SessionStorage.ts
+//npx tsx tests/04_Session_Storage/231_SessionStorage.ts 2>&1 | tail -30
+// npx playwright test tests/04_Session_Storage/232_TestWingify.spec.ts --reporter=list
+//same concept of properties file
+//when u use only playwright in above then u need to manualy create test in that
+// u need to create browser---> context ---> page
+//if u are using playwright/test by default this above part will done at fixture level
+// Async will automatically used this

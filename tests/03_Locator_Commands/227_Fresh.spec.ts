@@ -44,9 +44,14 @@ test('tc#1 - Verify that the vwo page is laoded', async({page})=>{
     await expect(error_message).toContainText("Your email, password, IP address or location did not match");
     await page.pause();
 });
+//DEBUG VS UI Mode
 //if u want to run it in debug mode==>
 //npx playwright test tests/03_Locator_Commands/227_Fresh.spec.ts --ui
 //=>debug + ui see also( rollback and network requet, other extra things to see)
 
 //npx playwright test tests/03_Locator_Commands/227_Fresh.spec.ts --debug
 //=>debug will help you to execute the testcase one by one command
+
+// Headless VS Headed
+// headless- No UIEvent
+// Headed- with UI

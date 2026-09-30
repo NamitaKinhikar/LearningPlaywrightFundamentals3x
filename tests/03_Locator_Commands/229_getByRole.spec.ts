@@ -2,9 +2,8 @@ import { test, expect} from '@playwright/test';
 
 test("Verfiy the error message in the wingify free trial", async({ page})=>
 {
-
     await page.goto("https://app.wingify.com/#/login");
-    let username = page.getByRole("textbox",{ name: "Email", exact :true});
+    let username = page.getByRole("textbox",{ name: "Email address", exact :true});
     let password = page.getByRole("textbox",{ name: "Password"});
 
     // username.nth(1);
@@ -12,8 +11,8 @@ test("Verfiy the error message in the wingify free trial", async({ page})=>
     await password.fill('1234@admin');
 
     await page.pause();
-
 });
 
+//ARIA=>Accessible Rich Internet Applications
 // Concept of Normalized page function=>If Space available in that casewe use-
 // //tagname[(@normalize-space()='Make appointment')]
