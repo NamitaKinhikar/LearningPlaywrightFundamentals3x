@@ -8,8 +8,6 @@ test.use(
         screenshot: 'only-on-failure',
     });
 
-
-
 test("go directly to dashboard — Test1", async ({ page }) => {
     await page.goto("https://app.wingify.com/#/dashboard?accountId=1281316");
     await expect(page).toHaveURL(/dashboard/);

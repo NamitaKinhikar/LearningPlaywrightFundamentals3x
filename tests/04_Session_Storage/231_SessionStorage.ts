@@ -25,9 +25,9 @@ async function saveSession() {
     console.log("Session saved to user-session.json ✅");
 
     await browser.close();
-
 }
 saveSession();
+
 //to run the code u can use -npx tsx tests/04_Session_Storage/231_SessionStorage.ts
 //npx tsx tests/04_Session_Storage/231_SessionStorage.ts 2>&1 | tail -30
 // npx playwright test tests/04_Session_Storage/232_TestWingify.spec.ts --reporter=list

@@ -5,7 +5,7 @@ import { test, expect } from "@playwright/test";
 test.use(
     {
         storageState: './user-session.json',
-        screenshot: 'only-on-failure',
+        //screenshot: 'only-on-failure',
     });
 
 
