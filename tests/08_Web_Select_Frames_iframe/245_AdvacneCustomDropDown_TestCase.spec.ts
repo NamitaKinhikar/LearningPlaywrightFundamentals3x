@@ -1,6 +1,7 @@
 import { test, expect, Locator } from '@playwright/test';
 
-test('Verify Advance Custom DropDowns', async ({ page }) => {
+test('Verify Advance Custom DropDowns', async ({ page }) => 
+{
    await page.goto('https://app.thetestingacademy.com/playwright/tables/select-boxes');
 
        // ① Single — searchable
@@ -22,13 +23,18 @@ test('Verify Advance Custom DropDowns', async ({ page }) => {
     await page.keyboard.press("Escape");
 
 
-    // ⑤ Async — fetched on type
-
+    // ⑤ Async — fetched on type -interview Related
 
     await page.locator("#rs-async").click();
     await page.getByTestId('rs-async-input').fill('de');
     await expect(page.getByTestId('rs-async-menu')).toContainText('Delhi');
     await page.getByRole('option',{ name: "Delhi", exact :true},).click();
 
-   await page.pause();
+    //excercise
+//     await page.locator("#rs-grouped");
+//     await page.getByTestId('rs-grouped-input').fill('Azure');
+//     await expect(page.getByTestId('rs-grouped')).toContainText('Azure');
+//     await page.getByRole('option',{name: "Azure", exact : true},).click();
+//     await page.pause();
+
 });

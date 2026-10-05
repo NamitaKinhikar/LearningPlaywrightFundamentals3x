@@ -5,6 +5,7 @@ node_modules/
 /playwright-report/
 /blob-report/
 /allure-results/
+/allure-report/
 /tta-report/
 /reports/
 /playwright/.cache/
