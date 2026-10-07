@@ -8,5 +8,7 @@
 - Wants test reports scoped to a specific test class/spec rather than the whole suite — run only the relevant file (or filter by `-g` title) before generating/opening the report. Confidence: 0.5
 - Seeds each new spec file with the task requirements as `//` comment lines at the top, then asks for the code to be generated beneath them, and expects those requirement comments to be preserved verbatim in the generated file. Confidence: 0.55
 - Works hands-on in the editor while the agent is running: spec files on disk are often edited/replaced between the agent's write and its next run, so the current file state should be re-read before acting on it. Confidence: 0.5
-- For git work, wants the agent to act fully autonomously — commit and push without asking for confirmation — and simply notify when it's done. Confidence: 0.6
+- For git work, wants the agent to act fully autonomously — commit and push without asking for confirmation — and simply notify when it's done. Confidence: 0.75
 - Version-controls his Playwright learning project with git, pushing changes to `origin/main`, and expects descriptive commit messages. Confidence: 0.5
+- Prefers to view related spec files side by side in the editor (expects opening a sibling test to place it beside the current one rather than replacing it in the same tab). Confidence: 0.4
+- Reporting a failing test is a request to drive the whole fix loop autonomously — run it, diagnose the real root cause, edit the spec, and re-run to verify — without asking "want me to apply this?" first. Confidence: 0.5
