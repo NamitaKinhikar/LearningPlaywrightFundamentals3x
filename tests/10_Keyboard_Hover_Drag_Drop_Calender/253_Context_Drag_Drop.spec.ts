@@ -6,9 +6,7 @@ test('Verify Drag and Drop in Kanban Board', async ({ page }) =>
 
     await page.locator('span.context-menu-one').first().click({ button: 'right' });
 
-   const allOptions: string[] = await page
-        .locator('ul.context-menu-list span')
-        .allInnerTexts();
+   const allOptions: string[] = await page.locator('ul.context-menu-list span').allInnerTexts();
     console.log(allOptions);
 
     await page.getByText('Copy', { exact: true }).first().click();
